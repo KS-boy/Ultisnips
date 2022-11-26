@@ -10,6 +10,8 @@ using namespace std;
 
 int main()
 {
+	cout<<"blabla"<<endl;
+
 
   return 0;
 }	
