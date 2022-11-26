@@ -1,0 +1,41 @@
+snippet cla "An entire .h generator" b
+#ifndef ${2:`!v substitute(vim_snippets#Filename('$1_H','ClassName'),'.*','\U&\E','')`}
+#define $2
+
+class ${1:`!v substitute(substitute(vim_snippets#Filename('$1','ClassName'),'^.','\u&',''), '_\(\w\)', '\u\1', 'g')`}
+{
+public:
+	$1();
+	virtual ~$1();
+private:
+	$3
+
+};
+
+#endif /* $2 */
+endsnippet
+
+
+snippet ponce "#pragma once include guard"
+#pragma once
+
+endsnippet
+
+snippet main
+int main(int argc, char *argv[])
+{
+	${0}
+	return 0;
+}
+endsnippet
+
+
+snippet using "using directive/using declaration/type alias"
+using ${1:namespace}`!p snip.rv = ' ' if t[1] == 'namespace' else ' = ' if t[1] != '' else ''`${2:name};
+endsnippet
+
+
+snippet c " brief comment"
+/* ${1:Brief Comment} */
+${0}
+endsnippet
